@@ -14,12 +14,12 @@ namespace FeedTheCat.Presentation
 {
     public partial class Form1 : Form
     {
-        
-        
+
+
         public Form1()
         {
             InitializeComponent();
-            
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -60,8 +60,8 @@ namespace FeedTheCat.Presentation
             if (id != null)
             {
 
-               Presentation.EditForm editForm = new Presentation.EditForm(id);
-                
+                Presentation.EditForm editForm = new Presentation.EditForm(id);
+
                 editForm.ShowDialog();
                 LoadInfo();
             }
@@ -82,6 +82,16 @@ namespace FeedTheCat.Presentation
                     LoadInfo();
                 }
             }
+        }
+
+        private void FeedsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

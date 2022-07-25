@@ -102,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="Models\DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -135,6 +136,13 @@
       <DependentUpon>DB.edmx</DependentUpon>
       <LastGenOutput>DB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\emblemdefault_103452.ico" />
+    <None Include="Resources\vcsconflicting_93497 %281%29.ico" />
+    <None Include="Resources\flat-style-circle-add_icon-icons.com_66944 %281%29.ico" />
+    <None Include="Resources\3592869-compose-create-edit-edit-file-office-pencil-writing-creative_107746 %281%29.ico" />
+    <None Include="Resources\flat-style-circle-add_icon-icons.com_66944.ico" />
+    <None Include="Resources\vcsconflicting_93497.ico" />
+    <None Include="Resources\3592869-compose-create-edit-edit-file-office-pencil-writing-creative_107746.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

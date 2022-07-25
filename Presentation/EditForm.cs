@@ -14,7 +14,7 @@ namespace FeedTheCat.Presentation
     public partial class EditForm : Form
     {
         public int? id;
-        Feed feed1 = null;
+        Feed feed = null;
         public EditForm(int? id = null)
         {
             InitializeComponent();
@@ -28,10 +28,10 @@ namespace FeedTheCat.Presentation
         {
             using (FeedTheCatEntities db = new FeedTheCatEntities())
             {
-                feed1 = db.Feed.Find(id);
-                DescriptionTextBox.Text = feed1.Description;
-                CurrentWeightTextBox.Text = feed1.CurrentWeight.ToString();
-                FedByComboBox.Text = feed1.CreatedBy;   
+                feed = db.Feed.Find(id);
+                DescriptionTextBox.Text = feed.Description;
+                CurrentWeightTextBox.Text = feed.CurrentWeight.ToString();
+                FedByComboBox.Text = feed.CreatedBy;   
             }
         }
 
@@ -40,35 +40,31 @@ namespace FeedTheCat.Presentation
         {
             using (FeedTheCatEntities db = new FeedTheCatEntities())
             {
-
-                if (id == null)
+                if (id is null)
                 {
-                    Feed feed = new Feed();
+                    feed = new Feed();
+                }
 
-                    feed.Description = DescriptionTextBox.Text;
-                    feed.CurrentWeight = Decimal.Parse(CurrentWeightTextBox.Text);
-                    feed.CreatedBy = FedByComboBox.Text;
-                    feed.CreatedDate = DateTime.Now;
+                feed.Description = DescriptionTextBox.Text;
+                feed.CurrentWeight = Decimal.Parse(CurrentWeightTextBox.Text);
+                feed.CreatedBy = FedByComboBox.Text;
+                feed.CreatedDate = DateTime.Now;
 
+                if (id is null)
+                {
                     db.Feed.Add(feed);
                 }
                 else
                 {
-                    feed1.Description = DescriptionTextBox.Text;
-                    feed1.CurrentWeight = Decimal.Parse(CurrentWeightTextBox.Text);
-                    feed1.CreatedBy = FedByComboBox.Text;
-                    feed1.CreatedDate = DateTime.Now;
-
-                    db.Entry(feed1).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry(feed).State = System.Data.Entity.EntityState.Modified;
                 }
-               
-                db.SaveChanges(); 
-            this.Close();
 
+                db.SaveChanges();
             }
+            this.Close();
         }
 
-     
+
 
 
 
